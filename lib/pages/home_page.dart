@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:orderingsystem/components/bread_tile.dart';
-import 'package:orderingsystem/model/cart.dart';
 import 'coffee_page.dart';
 import 'tea_page.dart';
 import 'bread_page.dart';
@@ -18,7 +16,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   List<Widget> myTabs = [
     MyTab(
-      iconPath: 'lib/icons/burger.png',
+      iconPath: 'lib/icons/coffee.png',
     ),
     MyTab(
       iconPath: 'lib/icons/smoothie.png',

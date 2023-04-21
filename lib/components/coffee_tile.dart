@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:orderingsystem/model/cart.dart';
 import 'package:orderingsystem/model/coffee.dart';
 import 'package:orderingsystem/model/cart_model.dart';
 
 CartModel cartmodel = CartModel();
 
-class CoffeeTitle extends StatefulWidget {
+class CoffeeTitle extends StatelessWidget {
   final Coffee coffee;
   void Function()? onPressed;
-  CoffeeTitle({super.key, required this.coffee, required this.onPressed});
+  final Widget icon;
 
-  @override
-  State<CoffeeTitle> createState() => _CoffeeTitleState();
-}
+  CoffeeTitle({super.key,
+    required this.coffee,
+    required this.onPressed,
+    required this.icon,
+  });
 
-class _CoffeeTitleState extends State<CoffeeTitle> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,26 +26,20 @@ class _CoffeeTitleState extends State<CoffeeTitle> {
       padding: EdgeInsets.symmetric(vertical: 30, horizontal: 10),
       child: ListTile(
         title: Text(
-          widget.coffee.name,
+          coffee.name,
           style: TextStyle(fontSize: 20),
         ),
         subtitle: Text(
-          widget.coffee.price,
+          coffee.price,
           style: TextStyle(fontSize: 15),
         ),
-        leading: Image.asset(widget.coffee.imagepath),
+        leading: Image.asset(coffee.imagepath),
         trailing: IconButton(
-            onPressed: () {
-              setState(() {
-                cartmodel.addToCart(Cart(
-                    name: widget.coffee.name,
-                    price: widget.coffee.price,
-                    imagepath: widget.coffee.imagepath));
-              });
+          icon: icon,
+            onPressed: onPressed,
               // print('Coffee pressed.');
               // print(widget.coffee.name + "\n" + widget.coffee.price);
-            },
-            icon: const Icon(Icons.add)),
+        ),
       ),
     );
   }

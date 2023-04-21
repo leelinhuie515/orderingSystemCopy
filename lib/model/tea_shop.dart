@@ -6,27 +6,27 @@ class TeaShop extends ChangeNotifier{
   final List<Tea> _shop =[
     //tea 1
     Tea(
-      name: 'tea 1',
-      price: '0.00',
-      imagepath: "",
+      name: 'Apple Tea',
+      price: '3.90',
+      imagepath: "lib/images/apple.jpeg",
     ),
     //tea 2
     Tea(
-      name: 'tea 2',
-      price: '0.00',
-      imagepath: "",
+      name: 'Peach Tea',
+      price: '3.90',
+      imagepath: "lib/images/peach.jpeg",
     ),
     //tea 3
     Tea(
-      name: 'tea 3',
-      price: '0.00',
-      imagepath: "",
+      name: 'Strawberry Tea',
+      price: '7.90',
+      imagepath: "lib/images/strawberry.jpeg",
     ),
     //tea 4
     Tea(
-      name: 'tea 4',
-      price: '0.00',
-      imagepath: "",
+      name: 'Lemon Tea',
+      price: '5.90',
+      imagepath: "lib/images/lemon.jpeg",
     ),
   ];
   //user cart

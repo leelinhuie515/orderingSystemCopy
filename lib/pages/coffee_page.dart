@@ -13,7 +13,12 @@ class coffeePage extends StatefulWidget {
 }
 
 class _coffeePageState extends State<coffeePage> {
+
   //add coffee to cart
+  void addToCart(Coffee coffee){
+    Provider.of<CoffeeShop>(context, listen: false).addItemToCart(coffee);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Consumer<CoffeeShop>(
@@ -22,6 +27,7 @@ class _coffeePageState extends State<coffeePage> {
           padding: const EdgeInsets.all(25.0),
           child: Column(
             children: [
+
               //heading message
               const Text(
                 "Coffee",
@@ -29,9 +35,7 @@ class _coffeePageState extends State<coffeePage> {
                   fontSize: 45,
                   fontFamily: 'Modern Love',
                 ),
-
               ),
-
               const SizedBox(height: 25),
 
               //list of coffee to buy
@@ -43,11 +47,11 @@ class _coffeePageState extends State<coffeePage> {
                     Coffee eachCoffee = value.coffeeShop[index];
 
                     //return the tile for this coffee
-                    return CoffeeTitle(coffee: eachCoffee, onPressed: () {  },
-
+                    return CoffeeTitle(
+                      coffee: eachCoffee,
+                      icon: Icon(Icons.add),
+                      onPressed: () => addToCart(eachCoffee),
                     );
-
-
                   },
                 ),
               ),

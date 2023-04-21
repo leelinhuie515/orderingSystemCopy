@@ -6,27 +6,27 @@ class BreadShop extends ChangeNotifier{
   final List<Bread> _shop = [
     //bread 1
     Bread(
-      name: 'bread 1',
-      price: '0.00',
-      imagepath: "",
+      name: 'Sandwich',
+      price: '9.50',
+      imagepath: "lib/images/sandwich.jpeg",
     ),
     //bread 2
     Bread(
-      name: 'bread 2',
-      price: '0.00',
-      imagepath:"" ,
+      name: 'Croissant',
+      price: '9.50',
+      imagepath:"lib/images/croissant.jpeg" ,
     ),
     //bread 3
     Bread(
-      name: 'bread 3',
-      price: '0.00',
-      imagepath: "",
+      name: 'Toast',
+      price: '5.50',
+      imagepath: "lib/images/toast.jpeg",
     ),
     //bread 4
     Bread(
-      name: 'bread 4',
-      price: '0.00',
-      imagepath: "",
+      name: 'Burger',
+      price: '9.50',
+      imagepath: "lib/images/burger.jpeg",
     ),
   ];
   // user cart

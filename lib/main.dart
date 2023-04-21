@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         Provider(create: (context) => CoffeeShop()),
         Provider(create: (context) => BreadShop()),
         Provider(create: (context) => TeaShop()),
-        Provider(create: (context) => CartModel())
+        Provider(create: (context) => CartModel(),)
       ],
       builder: (context, child) => const MaterialApp(
         // debugShowCheckedModeBanner: false,

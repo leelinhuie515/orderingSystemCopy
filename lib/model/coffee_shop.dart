@@ -6,27 +6,27 @@ class CoffeeShop extends ChangeNotifier{
   final List<Coffee>  _shop = [
     //black coffee
     Coffee(
-      name:'Long Black',
+      name:'Americano',
       price:'4.10',
-      imagepath: "",
+      imagepath: "lib/images/americano.jpeg",
     ),
     //latte
     Coffee(
       name:'Latte',
       price:'4.20',
-      imagepath: "",
+      imagepath: "lib/images/latte.jpeg",
     ),
     //espresso
     Coffee(
       name:'Espresso',
       price:'3.50',
-      imagepath: "",
+      imagepath: "lib/images/espresso.jpeg",
     ),
     //iced coffee
     Coffee(
       name:'Iced Coffee',
       price:'4.40',
-      imagepath: "",
+      imagepath: "lib/images/icedcoffee.jpeg",
     ),
   ];
   //user cart

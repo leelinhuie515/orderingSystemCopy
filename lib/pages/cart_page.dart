@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:orderingsystem/components/cart_tile.dart';
+import 'package:orderingsystem/components/coffee_tile.dart';
+import 'package:orderingsystem/model/coffee.dart';
+import 'package:orderingsystem/model/coffee_shop.dart';
 import 'package:provider/provider.dart';
 import 'home_page.dart';
-import '../model/cart_model.dart';
-import 'package:orderingsystem/model/cart.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({Key? key}) : super(key: key);
@@ -11,9 +11,12 @@ class CartPage extends StatefulWidget {
   @override
   State<CartPage> createState() => _CartPageState();
 }
-
 class _CartPageState extends State<CartPage> {
   @override
+
+  void removeFromCart(Coffee coffee){
+    Provider.of<CoffeeShop>(context,listen: false).removeItemFromCart(coffee);
+  }
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -23,7 +26,8 @@ class _CartPageState extends State<CartPage> {
           color: Colors.grey[800],
         ),
       ),
-      body: Consumer<CartModel>(
+
+      body: Consumer<CoffeeShop>(
         builder: (context, value, child) {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,12 +49,12 @@ class _CartPageState extends State<CartPage> {
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),
                   child: ListView.builder(
-                    itemCount: value.cartItems.length,
+                    itemCount: value.userCart.length,
                     padding: EdgeInsets.all(12),
                     itemBuilder: (context, index) {
-                      Cart eachCart = value.cartItems[index];
-                      return CartTile(
-                          cart: eachCart
+                      Coffee eachCoffee = value.userCart[index];
+                      return CoffeeTitle(coffee: eachCoffee,onPressed:()=> removeFromCart(eachCoffee),
+                        icon: Icon(Icons.delete),
                       );
                     },
                   ),
@@ -79,14 +83,6 @@ class _CartPageState extends State<CartPage> {
 
                           const SizedBox(height: 8),
                           // total price
-                          Text(
-                            '\$${value.calculateTotal()}',
-                            style: const TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          ),
                         ],
                       ),
 
@@ -100,11 +96,13 @@ class _CartPageState extends State<CartPage> {
                             },
                           ),
                         ),
+
                         child: Container(
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.blueGrey.shade200),
                             borderRadius: BorderRadius.circular(28),
                           ),
+
                           padding: const EdgeInsets.all(12),
                           child: Row(
                             children: const [
@@ -112,6 +110,7 @@ class _CartPageState extends State<CartPage> {
                                 'Pay Now',
                                 style: TextStyle(color: Colors.white),
                               ),
+
                               Icon(
                                 Icons.arrow_forward_ios,
                                 size: 16,
